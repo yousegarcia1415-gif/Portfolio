@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Youse Garcia Jimenez · Engineering Index</title>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --bg-color: #030712;
@@ -25,6 +29,11 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; /* Prevents sticky nav from covering section headers */
         }
 
         body {
@@ -264,7 +273,7 @@
             border-radius: 3px;
         }
 
-        /* Project Image Gallery (NEW UNIFORM SIZING) */
+        /* Project Image Gallery */
         .project-gallery {
             margin-top: 1rem;
             padding-top: 1rem;
@@ -415,6 +424,7 @@
             border-radius: 4px;
             border: 1px solid var(--border-color);
             margin-bottom: 1rem;
+            background: rgba(30, 58, 138, 0.05); 
         }
 
         /* Skills Grid */
@@ -455,13 +465,13 @@
             color: var(--text-main);
         }
 
-        /* Resume Zoom / Lightbox */
-        .resume-img {
+        /* Image Zoom / Lightbox */
+        .zoom-img {
             cursor: zoom-in;
             transition: transform 0.2s ease, border-color 0.2s ease;
         }
 
-        .resume-img:hover {
+        .zoom-img:hover {
             transform: scale(1.02);
             border-color: var(--accent-cyan) !important;
         }
@@ -505,7 +515,7 @@
                 grid-template-columns: 1fr;
             }
             .nav-links {
-                display: none;
+                display: none; /* Consider changing this to a hamburger menu later if needed! */
             }
         }
     </style>
@@ -585,34 +595,34 @@
                         <h3>Martian Exploration Bridge Design</h3>
                         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.2rem;">Collaborated in the competitive First-Year Engineering Expo, where classes competed to integrate multiple distinct systems (bridge, wind turbine, rover) into a unified Martian diorama. Engineered a structural bridge concept optimized for Martian exploration, adhering to strict size constraints to ensure compatibility with other projects—specifically guaranteeing the rover could successfully navigate through the bridge. Successfully incorporated advanced stretch goals into our design, including internal LED routing and a dedicated pedestrian sidewalk.</p>
 
-                        <!-- Project Image Gallery with uniform grid -->
+                        <!-- Project Image Gallery -->
                         <details class="project-gallery">
                             <summary style="cursor: pointer; color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 1rem;">[+] VIEW PROTOTYPES & POSTER</summary>
                             
                             <!-- Poster -->
                             <div class="gallery-row-title">PROJECT POSTER</div>
                             <div class="gallery-single">
-                                <img src="First Year Expo Poster.jpg" class="poster-img" alt="First Year Expo Poster" onerror="this.style.display='none';">
+                                <img src="First Year Expo Poster.jpg" class="poster-img zoom-img" alt="First Year Expo Poster" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                             </div>
 
                             <!-- Prototype 1 -->
                             <div class="gallery-row-title">PROTOTYPE 1</div>
                             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Initial physical prototype utilizing styrofoam and boards to conceptualize structural supports. Configured four solar panels in a series connection to plan and test the power supply for the bridge's LED system.</p>
                             <div class="gallery-single">
-                                <img src="Prototype 1.jpeg" alt="Prototype 1 View" onerror="this.style.display='none';">
+                                <img src="Prototype 1.jpeg" class="zoom-img" alt="Prototype 1 View" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                             </div>
 
                             <!-- Prototype 2 & CAD -->
-                            <div class="gallery-row-title">PROTOTYPE 2 & CAD MODEL</div>
+                            <div class="gallery-row-title" style="margin-top: 2rem;">PROTOTYPE 2 & CAD MODEL</div>
                             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Transitioned to a hybrid model based on initial SolidWorks designs. Utilized balsa wood for the side trusses to reduce 3D printing time, combined with fully 3D-printed top and bottom decks. The top deck features custom inserts allowing us to safely position the solar panels for later configurations.</p>
                             
                             <div class="gallery-grid">
-                                <img src="CAD MODEL BRIDGE.jpg" alt="Bridge CAD Model" onerror="this.style.display='none';">
-                                <img src="Prototype 2.jpeg" alt="Prototype 2 Front" onerror="this.style.display='none';">
-                                <img src="Prototype 2 Top View.jpeg" alt="Prototype 2 Top View" onerror="this.style.display='none';">
+                                <img src="CAD MODEL BRIDGE.jpg" class="zoom-img" alt="Bridge CAD Model" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
+                                <img src="Prototype 2.jpeg" class="zoom-img" alt="Prototype 2 Front" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
+                                <img src="Prototype 2 Top View.jpeg" class="zoom-img" alt="Prototype 2 Top View" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                                 
                                 <!-- Diorama overlay container -->
-                                <div style="position: relative; width: 100%; height: 380px;">
+                                <div style="position: relative; width: 100%; height: 380px;" class="zoom-img" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src='Prototype 2 on diorama.jpeg';" title="Click to enlarge">
                                     <img src="Prototype 2 on diorama.jpeg" alt="Prototype 2 on diorama" onerror="this.style.display='none';" style="position: absolute; top:0; left:0; width: 100%; height: 100%;">
                                     <div style="position: absolute; bottom: 10px; width: 100%; text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 0; text-transform: uppercase; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">On Martian Diorama</div>
                                 </div>
@@ -622,8 +632,8 @@
                             <div class="gallery-row-title">FINAL PROTOTYPE</div>
                             <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Fully 3D-printed all components for the final iteration. With the help of my teammates, we successfully integrated a functional, solar-powered LED traffic light system. The final design incorporates all planned features, including the pedestrian sidewalk and verified structural support allowing the Martian rover to cross the bridge.</p>
                             <div class="gallery-grid">
-                                <img src="Final Prototype.jpeg" alt="Final Prototype" onerror="this.style.display='none';">
-                                <img src="Final Prototype side view.jpeg" alt="Final Prototype side view" onerror="this.style.display='none';">
+                                <img src="Final Prototype.jpeg" class="zoom-img" alt="Final Prototype" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
+                                <img src="Final Prototype side view.jpeg" class="zoom-img" alt="Final Prototype side view" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                             </div>
                         </details>
                     </div>
@@ -694,8 +704,8 @@
                         
                         <!-- Rendered Model & Org Chart Image Preview -->
                         <div style="border-top: 1px solid var(--border-color); padding-top: 1.2rem; text-align: center;">
-                            <img src="Rendered Model.jpg" alt="Rendered Model" onerror="this.style.display='none';" style="margin-bottom: 1.5rem;">
-                            <img src="Org Chart.jpg" alt="Team 06 Org Chart" onerror="this.style.display='none';">
+                            <img src="Rendered Model.jpg" class="zoom-img" alt="Rendered Model" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';" style="margin-bottom: 1.5rem;">
+                            <img src="Org Chart.jpg" class="zoom-img" alt="Team 06 Org Chart" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                         </div>
                     </div>
                 </details>
@@ -722,7 +732,7 @@
                     
                     <!-- FAS Internship Photo -->
                     <div class="cert-img-container">
-                        <img src="FAS Internship Image.jpg" alt="FAS Engineering Internship" onerror="this.style.display='none';">
+                        <img src="FAS Internship Image.jpg" class="zoom-img" alt="FAS Engineering Internship" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                     </div>
                 </details>
             </div>
@@ -770,11 +780,11 @@
                     <!-- Research Photos & Poster Container -->
                     <div class="cert-img-container">
                         <div class="gallery-grid" style="margin-bottom: 1.5rem;">
-                            <img src="Prosthetic Model(1).jpg" alt="Prosthetic Hand Model 1" onerror="this.style.display='none';">
-                            <img src="Prosthetic Model(2).jpg" alt="Prosthetic Hand Model 2" onerror="this.style.display='none';">
+                            <img src="Prosthetic Model(1).jpg" class="zoom-img" alt="Prosthetic Hand Model 1" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
+                            <img src="Prosthetic Model(2).jpg" class="zoom-img" alt="Prosthetic Hand Model 2" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                         </div>
-                        <img src="Research Poster.jpg" alt="Research Poster" onerror="this.style.display='none';">
-                        <img src="Research Poster(2).jpg" alt="Conference Research Poster" onerror="this.style.display='none';">
+                        <img src="Research Poster.jpg" class="zoom-img" alt="Research Poster" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
+                        <img src="Research Poster(2).jpg" class="zoom-img" alt="Conference Research Poster" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                     </div>
                 </details>
             </div>
@@ -880,7 +890,7 @@
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1.2rem;">Successfully completed the competitive 15-week academy with formal verification badges in spacecraft systems design, mission life cycles, and engineering reviews (MCR, SRR, PDR, MDR).</p>
                     
                     <div class="cert-img-container">
-                        <img src="MCA Certificate.jpg" alt="NASA L'SPACE MCA Certificate" onerror="this.style.display='none';">
+                        <img src="MCA Certificate.jpg" class="zoom-img" alt="NASA L'SPACE MCA Certificate" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                     </div>
                 </details>
             </div>
@@ -900,7 +910,7 @@
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1.2rem;">Recognized for my completion of the intensive research Program Borealis Scholars where I participated during the program's 2nd and final cohort and began a research proposal, worked under multiple labs, gained professional research experience, and networked with Biomedical engineering professionals.</p>
                     
                     <div class="cert-img-container">
-                        <img src="Borealis Certificate.jpeg" alt="Borealis Scholars Certificate" onerror="this.style.display='none';">
+                        <img src="Borealis Certificate.jpeg" class="zoom-img" alt="Borealis Scholars Certificate" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                     </div>
                 </details>
             </div>
@@ -920,7 +930,7 @@
                     <p style="color: var(--text-muted); font-size: 0.9rem; margin-top: 1.2rem;">Research poster and prosthetic hand prototype findings selected for presentation at the national BMES Conference in Baltimore.</p>
                     
                     <div class="cert-img-container">
-                        <img src="BMES Fall 2024.jpg" alt="BMES Conference Presentation" onerror="this.style.display='none';">
+                        <img src="BMES Fall 2024.jpg" class="zoom-img" alt="BMES Conference Presentation" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                     </div>
                 </details>
             </div>
@@ -1021,7 +1031,7 @@
                         </div>
                     </summary>
                     <div class="cert-img-container" style="border-top: none; margin-top: 0; padding-top: 0;">
-                        <img src="YouseGarcia_AcademicResume.jpg" alt="Engineering & Academic Resume" class="resume-img" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';" style="width: 100%; border: 1px solid var(--border-color); border-radius: 4px;">
+                        <img src="YouseGarcia_AcademicResume.jpg" alt="Engineering & Academic Resume" class="zoom-img" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';" style="width: 100%; border: 1px solid var(--border-color); border-radius: 4px;">
                     </div>
                 </details>
             </div>
@@ -1038,7 +1048,7 @@
                         </div>
                     </summary>
                     <div class="cert-img-container" style="border-top: none; margin-top: 0; padding-top: 0;">
-                        <img src="YouseGarcia_RetailResume.jpg" alt="Retail & General Resume" class="resume-img" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';" style="width: 100%; border: 1px solid var(--border-color); border-radius: 4px;">
+                        <img src="YouseGarcia_RetailResume.jpg" alt="Retail & General Resume" class="zoom-img" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';" style="width: 100%; border: 1px solid var(--border-color); border-radius: 4px;">
                     </div>
                 </details>
             </div>
@@ -1056,14 +1066,14 @@
         </section>
     </main>
 
-    <!-- Resume Lightbox Overlay -->
+    <!-- Universal Image Lightbox Overlay -->
     <div id="lightbox" class="lightbox" onclick="this.style.display='none'">
-        <img id="lightbox-img" src="" alt="Enlarged Resume">
+        <img id="lightbox-img" src="" alt="Enlarged View">
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>© 2026 · Youse Garcia</p>
+        <p>© 2026 · Built by Youse Garcia</p>
     </footer>
 
 </body>
