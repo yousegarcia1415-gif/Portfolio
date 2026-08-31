@@ -273,26 +273,51 @@
             border-radius: 3px;
         }
 
-        /* Experience Block */
+        /* Experience Accordion Blocks */
         .experience-block {
             background: var(--panel-bg);
             border: 1px solid var(--border-color);
-            padding: 2rem;
             border-radius: 6px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
+            transition: border-color 0.2s ease;
         }
 
-        .experience-header {
+        .experience-block:hover {
+            border-color: var(--border-hover);
+        }
+
+        .experience-block details {
+            padding: 1.8rem;
+        }
+
+        .experience-block summary {
+            list-style: none;
+            cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 0.8rem;
             flex-wrap: wrap;
             gap: 1rem;
         }
 
-        .experience-header h3 {
+        .experience-block summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .experience-header-content h3 {
             font-size: 1.15rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .experience-header-content p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .experience-meta-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
         }
 
         .experience-header span {
@@ -301,16 +326,29 @@
             color: var(--accent-orange);
         }
 
+        .toggle-icon {
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+            color: var(--accent-cyan);
+            transition: transform 0.2s ease;
+        }
+
+        details[open] .toggle-icon {
+            transform: rotate(45deg);
+        }
+
         .experience-block ul {
             list-style-type: none;
-            margin-top: 0.8rem;
+            margin-top: 1.2rem;
+            padding-top: 1.2rem;
+            border-top: 1px solid var(--border-color);
         }
 
         .experience-block li {
             position: relative;
             padding-left: 1.2rem;
             color: var(--text-muted);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             font-size: 0.9rem;
         }
 
@@ -388,6 +426,8 @@
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#projects">PROJECTS</a></li>
             <li><a href="#experience">EXPERIENCE</a></li>
+            <li><a href="#honors">HONORS</a></li>
+            <li><a href="#certificates">CERTIFICATES</a></li>
             <li><a href="#education">EDUCATION</a></li>
             <li><a href="#skills">SKILLS</a></li>
             <li><a href="#contact">CONTACT</a></li>
@@ -484,146 +524,265 @@
             <h3 class="subsection-title">Professional Experience</h3>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>NASA L’Space NPWEE · <span>L'SPACE Program</span></h3>
-                    <span>Aug 2026 – Present</span>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Remote</p>
-                <ul>
-                    <li>Participating in professional workforce development and engineering systems training.</li>
-                </ul>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>NASA L’Space NPWEE · <span style="color: var(--accent-cyan);">L'SPACE Program</span></h3>
+                            <p>Remote</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>Aug 2026 – Present</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Participating in professional workforce development and engineering systems training.</li>
+                    </ul>
+                </details>
             </div>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>NASA L Space Mission Concept Academy · <span>L'SPACE Program</span></h3>
-                    <span>Sep 2025 – Dec 2025</span>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">United States · Remote</p>
-                <ul>
-                    <li>Participated in NASA’s competitive 15-week Mission Concept Academy where I served as one of two mechanical engineers on a multidisciplinary team designing and integrating rover mechanical components.</li>
-                    <li>Contributed to CAD development, subsystem requirements definition, mass and cost allocations, and trade studies.</li>
-                    <li>Supported mechanical risk analysis, verification and validation planning, and design updates following a mission descope.</li>
-                    <li>Collaborated in weekly design reviews with NASA and industry professionals, applying systems engineering principles and NASA mission life-cycle standards.</li>
-                </ul>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>NASA L Space Mission Concept Academy · <span style="color: var(--accent-cyan);">L'SPACE Program</span></h3>
+                            <p>United States · Remote</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>Sep 2025 – Dec 2025</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Participated in NASA’s competitive 15-week Mission Concept Academy where I served as one of two mechanical engineers on a multidisciplinary team designing and integrating rover mechanical components.</li>
+                        <li>Contributed to CAD development, subsystem requirements definition, mass and cost allocations, and trade studies.</li>
+                        <li>Supported mechanical risk analysis, verification and validation planning, and design updates following a mission descope.</li>
+                        <li>Collaborated in weekly design reviews with NASA and industry professionals, applying systems engineering principles and NASA mission life-cycle standards.</li>
+                    </ul>
+                </details>
             </div>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>FAS Engineering Internship · <span>Clarkson University</span></h3>
-                    <span>May 2025 – Aug 2025</span>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Potsdam, New York · On-site</p>
-                <ul>
-                    <li>Full-time | 40 hrs/week • Collected and entered hundreds of equipment data points into Clarkson’s GIS system.</li>
-                    <li>Walked through assigned campus buildings to label assets and update blueprints.</li>
-                    <li>Used GIS Pro and PTGui to scan rooms and create accurate 3D facility models, replacing outdated building files with detailed 3D spatial data.</li>
-                    <li>Mapped and plotted fire safety equipment and other key assets across multiple buildings.</li>
-                </ul>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>FAS Engineering Internship · <span style="color: var(--accent-cyan);">Clarkson University</span></h3>
+                            <p>Potsdam, New York · On-site</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>May 2025 – Aug 2025</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Full-time | 40 hrs/week • Collected and entered hundreds of equipment data points into Clarkson’s GIS system.</li>
+                        <li>Walked through assigned campus buildings to label assets and update blueprints.</li>
+                        <li>Used GIS Pro and PTGui to scan rooms and create accurate 3D facility models, replacing outdated building files with detailed 3D spatial data.</li>
+                        <li>Mapped and plotted fire safety equipment and other key assets across multiple buildings.</li>
+                    </ul>
+                </details>
             </div>
 
             <!-- Research -->
             <h3 class="subsection-title">Research</h3>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>Research Mentee – Dr Kenneth Wallace · <span>Clarkson University</span></h3>
-                    <span>Aug 2024 – Dec 2024</span>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Potsdam, New York</p>
-                <ul>
-                    <li>Conducted research on zebrafish in a molecular biology lab, mastering pipetting, PCR, digestion, and breeding techniques.</li>
-                    <li>Assisted with dissections, sample analysis, and lab operations, ensuring smooth tank maintenance.</li>
-                    <li>Acquired knowledge of lab chemicals and gel electrophoresis techniques for accurate experimentation.</li>
-                </ul>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>Research Mentee – Dr Kenneth Wallace · <span style="color: var(--accent-cyan);">Clarkson University</span></h3>
+                            <p>Potsdam, New York</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>Aug 2024 – Dec 2024</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Conducted research on zebrafish in a molecular biology lab, mastering pipetting, PCR, digestion, and breeding techniques.</li>
+                        <li>Assisted with dissections, sample analysis, and lab operations, ensuring smooth tank maintenance.</li>
+                        <li>Acquired knowledge of lab chemicals and gel electrophoresis techniques for accurate experimentation.</li>
+                    </ul>
+                </details>
             </div>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>Research Mentee - Dr. Kevin Fite · <span>Clarkson University</span></h3>
-                    <span>May 2024 – Aug 2024</span>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Potsdam, New York · On-site</p>
-                <ul>
-                    <li>Contributed to the design of a prosthetic hand prototype, studying human hand mechanics and congenital disorders.</li>
-                    <li>Collaborated on a research poster presented at RAPS and selected for the Biomedical Engineering Society Conference (Fall 2024, Baltimore).</li>
-                </ul>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>Research Mentee - Dr. Kevin Fite · <span style="color: var(--accent-cyan);">Clarkson University</span></h3>
+                            <p>Potsdam, New York · On-site</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>May 2024 – Aug 2024</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Contributed to the design of a prosthetic hand prototype, studying human hand mechanics and congenital disorders.</li>
+                        <li>Collaborated on a research poster presented at RAPS and selected for the Biomedical Engineering Society Conference (Fall 2024, Baltimore).</li>
+                    </ul>
+                </details>
             </div>
 
             <!-- Work Experience -->
             <h3 class="subsection-title">Work Experience</h3>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>Student Employee - South Dining Hall · <span>University of Connecticut Dining Services</span></h3>
-                    <span>Jul 2026 – Aug 2026</span>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Storrs, CT · On-site</p>
-                <ul>
-                    <li>Provided operational support across campus dining halls, greeting customers and maintaining food safety and portion control standards.</li>
-                    <li>Maintained dining hall cleanliness during peak hours, managed dishwashing operations, and restocked service supplies.</li>
-                </ul>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>Student Employee - South Dining Hall · <span style="color: var(--accent-cyan);">UConn Dining Services</span></h3>
+                            <p>Storrs, CT · On-site</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>Jul 2026 – Aug 2026</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Provided operational support across campus dining halls, greeting customers and maintaining food safety and portion control standards.</li>
+                        <li>Maintained dining hall cleanliness during peak hours, managed dishwashing operations, and restocked service supplies.</li>
+                    </ul>
+                </details>
             </div>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>Employee · <span>UConn Dairy Bar</span></h3>
-                    <span>Apr 2026 – Jun 2026</span>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">Storrs, CT · On-site</p>
-                <ul>
-                    <li>Handle daily front-of-house and back-of-house operations in a fast-paced environment.</li>
-                    <li>Scoop ice cream, take customer orders, and manage the register for cash and card transactions.</li>
-                    <li>Keep the shop running smoothly by opening up the store, doing full cleanups, replacing ice cream tubs when they run low, and keeping track of inventory and stocking for cups and paper goods.</li>
-                </ul>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>Employee · <span style="color: var(--accent-cyan);">UConn Dairy Bar</span></h3>
+                            <p>Storrs, CT · On-site</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>Apr 2026 – Jun 2026</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Handle daily front-of-house and back-of-house operations in a fast-paced environment.</li>
+                        <li>Scoop ice cream, take customer orders, and manage the register for cash and card transactions.</li>
+                        <li>Keep the shop running smoothly by opening up the store, doing full cleanups, replacing ice cream tubs when they run low, and keeping track of inventory and stocking for cups and paper goods.</li>
+                    </ul>
+                </details>
             </div>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>Music & Marketing Intern · <span>Valu Muzik</span></h3>
-                    <span>Jul 2023 – Aug 2024</span>
-                </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">New York, NY · Remote</p>
-                <ul>
-                    <li>Worked with award-winning artist Desmondthesongwriter to promote music releases and design merchandise.</li>
-                    <li>Created and managed the official Shopify website for the brand, optimizing website traffic using SEO techniques.</li>
-                    <li>Developed audience growth strategies, created engaging social media content, and handled outreach to producers and record labels.</li>
-                </ul>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>Music & Marketing Intern · <span style="color: var(--accent-cyan);">Valu Muzik</span></h3>
+                            <p>New York, NY · Remote</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>Jul 2023 – Aug 2024</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Worked with award-winning artist Desmondthesongwriter to promote music releases and design merchandise.</li>
+                        <li>Created and managed the official Shopify website for the brand, optimizing website traffic using SEO techniques.</li>
+                        <li>Developed audience growth strategies, created engaging social media content, and handled outreach to producers and record labels.</li>
+                    </ul>
+                </details>
             </div>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>Retail Sales Associate · <span>Party City</span></h3>
-                    <span>Jul 2023 – Jun 2024</span>
+                <details>
+                    <summary>
+                        <div class="experience-header-content">
+                            <h3>Retail Sales Associate · <span style="color: var(--accent-cyan);">Party City</span></h3>
+                            <p>New York, NY</p>
+                        </div>
+                        <div class="experience-meta-right">
+                            <span>Jul 2023 – Jun 2024</span>
+                            <span class="toggle-icon">[+]</span>
+                        </div>
+                    </summary>
+                    <ul>
+                        <li>Welcomed customers on the sales floor, helping them locate items and fulfilling custom orders accurately and on time.</li>
+                        <li>Managed general store work including restocking shelves, organizing displays, and keeping the sales floor clean.</li>
+                    </ul>
+                </details>
+            </div>
+        </section>
+
+        <!-- Honors & Awards Section -->
+        <section id="honors">
+            <div class="section-tag">§05 · RECOGNITION</div>
+            <h2 class="section-title">Honors & Awards</h2>
+
+            <div class="experience-block">
+                <div style="padding: 1.8rem;">
+                    <div class="experience-header">
+                        <h3>NASA L'Space Academy Completion · <span>NASA</span></h3>
+                        <span>2025</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Successfully completed the competitive Mission Concept Academy with recognition for spacecraft systems design and engineering reviews.</p>
                 </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">New York, NY</p>
-                <ul>
-                    <li>Welcomed customers on the sales floor, helping them locate items and fulfilling custom orders accurately and on time.</li>
-                    <li>Managed general store work including restocking shelves, organizing displays, and keeping the sales floor clean.</li>
-                </ul>
+            </div>
+
+            <div class="experience-block">
+                <div style="padding: 1.8rem;">
+                    <div class="experience-header">
+                        <h3>Biomedical Engineering Society (BMES) Conference Selection · <span>BMES</span></h3>
+                        <span>2024</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Research poster and prosthetic hand prototype findings selected for presentation at the national BMES Conference in Baltimore.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates">
+            <div class="section-tag">§06 · CREDENTIALS</div>
+            <h2 class="section-title">Certificates</h2>
+
+            <div class="experience-block">
+                <div style="padding: 1.8rem;">
+                    <div class="experience-header">
+                        <h3>Siemens NX Certification (In Progress) · <span>Siemens</span></h3>
+                        <span>2026</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Advanced professional coursework and credentialing in Siemens NX computer-aided design and modeling.</p>
+                </div>
+            </div>
+
+            <div class="experience-block">
+                <div style="padding: 1.8rem;">
+                    <div class="experience-header">
+                        <h3>NASA Systems Engineering Training · <span>NASA L'SPACE</span></h3>
+                        <span>2025</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Completed foundational training in NASA mission lifecycles, project management, and formal milestone reviews (MCR, SRR, PDR, MDR).</p>
+                </div>
             </div>
         </section>
 
         <!-- Education Section -->
         <section id="education">
-            <div class="section-tag">§05 · ACADEMIC BACKGROUND</div>
+            <div class="section-tag">§07 · ACADEMIC BACKGROUND</div>
             <h2 class="section-title">Education</h2>
 
             <div class="experience-block">
-                <div class="experience-header">
-                    <h3>University of Connecticut & Clarkson University</h3>
-                    <span>2024 – 2029</span>
+                <div style="padding: 1.8rem;">
+                    <div class="experience-header">
+                        <h3>University of Connecticut & Clarkson University</h3>
+                        <span>2024 – 2029</span>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">B.S. in Aerospace and Mechanical Engineering</p>
+                    <ul style="list-style-type: none; margin-top: 0.8rem;">
+                        <li style="position: relative; padding-left: 1.2rem; color: var(--text-muted); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                            <span style="position: absolute; left: 0; color: var(--accent-cyan);">—</span> Pursuing dual-focus coursework across aerospace and mechanical engineering disciplines.
+                        </li>
+                    </ul>
                 </div>
-                <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 0.5rem;">B.S. in Aerospace and Mechanical Engineering</p>
-                <ul>
-                    <li>Pursuing dual-focus coursework across aerospace and mechanical engineering disciplines.</li>
-                </ul>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section id="skills">
-            <div class="section-tag">§06 · SPEC SHEET</div>
+            <div class="section-tag">§08 · SPEC SHEET</div>
             <h2 class="section-title">Skills & Toolkit</h2>
 
             <div class="skills-grid">
@@ -651,7 +810,7 @@
 
         <!-- Contact Section -->
         <section id="contact">
-            <div class="section-tag">§07 · REACH OUT</div>
+            <div class="section-tag">§09 · REACH OUT</div>
             <h2 class="section-title">Get in Touch</h2>
             <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Interested in collaborating or discussing aerospace projects? Reach out directly.</p>
             <a href="mailto:yousegarcia1415@gmail.com" class="btn btn-primary">EMAIL ME ↗</a>
