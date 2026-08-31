@@ -33,7 +33,7 @@
 
         html {
             scroll-behavior: smooth;
-            scroll-padding-top: 100px; /* Prevents sticky nav from covering section headers */
+            scroll-padding-top: 100px;
         }
 
         body {
@@ -53,7 +53,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background-color: rgba(3, 7, 18, 0.9);
+            background-color: rgba(3, 7, 18, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
             display: flex;
@@ -70,6 +70,7 @@
             color: var(--accent-cyan);
             letter-spacing: 1px;
             text-decoration: none;
+            flex-shrink: 0;
         }
 
         .nav-links {
@@ -84,6 +85,7 @@
             font-size: 0.8rem;
             font-family: var(--font-mono);
             transition: color 0.2s ease;
+            white-space: nowrap;
         }
 
         .nav-links a:hover {
@@ -117,6 +119,7 @@
             letter-spacing: -1px;
             margin-bottom: 1rem;
             color: #ffffff;
+            line-height: 1.1;
         }
 
         .hero h2 {
@@ -143,6 +146,7 @@
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.4rem;
             padding: 0.6rem 1.2rem;
             font-family: var(--font-mono);
@@ -510,12 +514,89 @@
             border-top: 1px solid var(--border-color);
         }
 
-        @media (max-width: 768px) {
+        /* =========================================
+           RESPONSIVE DESIGN (TABLET & MOBILE)
+           ========================================= */
+
+        /* Tablet Adjustments */
+        @media (max-width: 1024px) {
             .hero {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr; /* Stack sidebar under text */
+                gap: 2rem;
+            }
+            main {
+                padding: 7rem 2rem 3rem 2rem;
+            }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            html {
+                scroll-padding-top: 120px; /* Account for taller stacked nav */
+            }
+            
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            /* Scrollable mobile nav menu */
+            .nav-links {
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+                gap: 1.2rem;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Hide scrollbar for clean look */
+            .nav-links::-webkit-scrollbar {
+                display: none;
             }
             .nav-links {
-                display: none; /* Consider changing this to a hamburger menu later if needed! */
+                -ms-overflow-style: none;
+                scrollbar-width: none;
+            }
+
+            main {
+                padding: 8.5rem 1.2rem 2rem 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.6rem;
+            }
+
+            .btn-group {
+                flex-direction: column; /* Massive, easy-to-tap buttons on mobile */
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+
+            .projects-grid, .skills-grid {
+                grid-template-columns: 1fr; /* Force 1 column */
+            }
+
+            .gallery-grid img, .gallery-single img {
+                height: 250px; /* Prevent images from being too tall on small screens */
+            }
+
+            .poster-img {
+                max-height: 450px !important; 
+            }
+
+            .experience-block details {
+                padding: 1.2rem;
+            }
+
+            .experience-meta-right {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 0.5rem;
             }
         }
     </style>
@@ -595,7 +676,7 @@
                         <h3>Martian Exploration Bridge Design</h3>
                         <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1.2rem;">Collaborated in the competitive First-Year Engineering Expo, where classes competed to integrate multiple distinct systems (bridge, wind turbine, rover) into a unified Martian diorama. Engineered a structural bridge concept optimized for Martian exploration, adhering to strict size constraints to ensure compatibility with other projects—specifically guaranteeing the rover could successfully navigate through the bridge. Successfully incorporated advanced stretch goals into our design, including internal LED routing and a dedicated pedestrian sidewalk.</p>
 
-                        <!-- Project Image Gallery -->
+                        <!-- Project Image Gallery with uniform grid -->
                         <details class="project-gallery">
                             <summary style="cursor: pointer; color: var(--accent-cyan); font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 1rem;">[+] VIEW PROTOTYPES & POSTER</summary>
                             
@@ -622,7 +703,7 @@
                                 <img src="Prototype 2 Top View.jpeg" class="zoom-img" alt="Prototype 2 Top View" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src=this.src;" title="Click to enlarge" onerror="this.style.display='none';">
                                 
                                 <!-- Diorama overlay container -->
-                                <div style="position: relative; width: 100%; height: 380px;" class="zoom-img" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src='Prototype 2 on diorama.jpeg';" title="Click to enlarge">
+                                <div style="position: relative; width: 100%; height: 100%;" class="zoom-img" onclick="document.getElementById('lightbox').style.display='flex'; document.getElementById('lightbox-img').src='Prototype 2 on diorama.jpeg';" title="Click to enlarge">
                                     <img src="Prototype 2 on diorama.jpeg" alt="Prototype 2 on diorama" onerror="this.style.display='none';" style="position: absolute; top:0; left:0; width: 100%; height: 100%;">
                                     <div style="position: absolute; bottom: 10px; width: 100%; text-align: center; font-family: var(--font-mono); font-size: 0.8rem; color: #fff; background: rgba(0,0,0,0.6); padding: 4px 0; text-transform: uppercase; border-bottom-left-radius: 6px; border-bottom-right-radius: 6px;">On Martian Diorama</div>
                                 </div>
